@@ -22,6 +22,22 @@ public class Add_User_Functionality_Test_Cases extends UtilityClass {
 
     @Test
     void testCase04(){
+        Orange_App_Elements elements=new Orange_App_Elements(driver);
+        clickElements(elements.getAdminButton());
+        clickElements(elements.getAddButton());
+        sendKeysElements(elements.getPasswordInputBox(),"technoStudy123.");
+        sendKeysElements(elements.getConfirmPasswordInputBox(),"1234");
+        String Actual =getTextFromElements(elements.getPasswordErrorMessage());
+        String ExpectedMessage = "Passwords do not match";
+        Assert.assertTrue(isDisplayedElements(elements.getPasswordErrorMessage()));
+        Assert.assertEquals(Actual,ExpectedMessage);
+        String ActualColor = elements.getPasswordErrorMessage().getCssValue("color");
+        String ExpectedColor ="rgba(235, 9, 16, 1)";
+        Assert.assertEquals(ActualColor,ExpectedColor);
+
+
+
+
 
     }
 
