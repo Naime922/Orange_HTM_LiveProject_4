@@ -2,6 +2,7 @@ package Orange_HRM_Add_User_Functionality;
 
 import Utilities.UtilityClass;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class Add_User_Functionality_Test_Cases extends UtilityClass {
@@ -42,6 +43,12 @@ public class Add_User_Functionality_Test_Cases extends UtilityClass {
 
     @Test
     void testCase08(){
+
+        Orange_App_Elements elements=new Orange_App_Elements(driver);
+
+        clickElements(elements.getAdminButton());
+
+        Assert.assertTrue(isDisplayedElements(elements.getAddButton()), "Failed to display Add Button");
 
     }
 
@@ -90,7 +97,22 @@ public class Add_User_Functionality_Test_Cases extends UtilityClass {
     }
 
     @Test
-    void testCase11(){
+    @Parameters(value = "msg")
+        void testCase11(String str){
+        Orange_App_Elements elements=new Orange_App_Elements(driver);
+        clickElements(elements.getAdminButton());
+        clickElements(elements.getAddButton());
+        sendKeysElements(elements.getPasswordInputBox(),str);
+
+        String actualPasswordErrorMessage = getTextFromElements(elements.getPasswordErrorMessage());
+        String expectedPasswordErrorMessage = "Should have at least 8 characters";
+
+        String actualPasswordMessageColor = elements.getPasswordErrorMessage().getCssValue("color");
+        String expectedPasswordMessageColor ="rgba(235, 9, 16, 1)";
+
+        Assert.assertEquals(actualPasswordErrorMessage, expectedPasswordErrorMessage, "The message is not same");
+        Assert.assertTrue(isDisplayedElements(elements.getPasswordErrorMessage()), "Failed to display the password error message");
+        Assert.assertEquals(actualPasswordMessageColor, expectedPasswordMessageColor, "The colors are not same");
 
     }
 
