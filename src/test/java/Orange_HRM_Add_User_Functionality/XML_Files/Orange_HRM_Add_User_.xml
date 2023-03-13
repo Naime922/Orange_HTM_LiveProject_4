@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test name="Add_User_Functionality_Test">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="Orange_HRM_Add_User_Functionality.Add_User_Functionality_Test_Cases">
+                <methods>
+                    <include name="testCase01"/>
+                    <include name="testCase02"/>
+                    <include name="testCase03"/>
+                    <include name="testCase04"/>
+                    <include name="testCase05"/>
+                    <include name="testCase06"/>
+                    <include name="testCase07"/>
+                    <include name="testCase08"/>
+                    <include name="testCase09"/>
+                    <include name="testCase10"/>
+                    <include name="testCase11"/>
+                    <include name="testCase12"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
