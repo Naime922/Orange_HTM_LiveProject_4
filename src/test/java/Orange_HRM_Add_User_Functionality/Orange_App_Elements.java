@@ -98,6 +98,9 @@ public class Orange_App_Elements {
     @FindBy(css = "span.oxd-text.oxd-text--span.oxd-input-field-error-message.oxd-input-group__message")
     private WebElement passwordErrorMessage;
 
+    @FindBy(xpath = "//div//span[text()='Already exists']")
+    private WebElement alreadyExistsMessage;
+
     public WebElement getUserName() {
         return userName;
     }
@@ -214,5 +217,7 @@ public class Orange_App_Elements {
         return passwordErrorMessage;
     }
 
-
+    public WebElement getAlreadyExistsMessage() {
+        return alreadyExistsMessage;
+    }
 }
