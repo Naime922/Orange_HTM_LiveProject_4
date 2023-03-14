@@ -49,7 +49,7 @@ public class Add_User_Functionality_Test_Cases extends UtilityClass {
         sendKeysElements(elements.getUsernameInputBox(), "utku");
 
         //Verify that notification messages “Should be at least 5 characters” in red color displayed.
-        String actual = elements.getPasswordErrorMessage().getText();
+        String actual = elements.getUsernameErrorMessage().getText();
 
         System.out.println(actual);
 
