@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class Orange_App_Elements {
 
     public Orange_App_Elements(WebDriver driver) {
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(css = "input[name='username']")
@@ -56,7 +56,7 @@ public class Orange_App_Elements {
     @FindBy(xpath = "(//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow'])[2]")
     private WebElement statusDropdownMenuArrow;
 
-    @FindBy( xpath = "//div//span[text()='Enabled']")
+    @FindBy(xpath = "//div//span[text()='Enabled']")
     private WebElement enabledFromStatus;
 
     @FindBy(xpath = "//div//span[text()='Disabled']")
@@ -97,6 +97,14 @@ public class Orange_App_Elements {
 
     @FindBy(css = "span.oxd-text.oxd-text--span.oxd-input-field-error-message.oxd-input-group__message")
     private WebElement passwordErrorMessage;
+
+    //@FindBy(css = "//span[text()='Required']")
+    @FindBy(xpath = "(//span[text()='Required'])[1]")
+    private WebElement errorForEmptyFields;
+
+    public WebElement getErrorForEmptyFields() {
+        return errorForEmptyFields;
+    }
 
     public WebElement getUserName() {
         return userName;
@@ -213,6 +221,6 @@ public class Orange_App_Elements {
     public WebElement getPasswordErrorMessage() {
         return passwordErrorMessage;
     }
-
-
 }
+
+

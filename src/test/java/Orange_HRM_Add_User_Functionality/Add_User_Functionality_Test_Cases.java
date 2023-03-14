@@ -1,24 +1,46 @@
 package Orange_HRM_Add_User_Functionality;
 
 import Utilities.UtilityClass;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.io.File;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Add_User_Functionality_Test_Cases extends UtilityClass {
 
     @Test
-    void testCase01(){
+    void testCase01() {
 
     }
 
     @Test
-    void testCase02(){
+    void testCase02() {
 
     }
+
     @Test
-    void testCase03(){
+    void testCase03() {
+        Orange_App_Elements elements = new Orange_App_Elements(driver);
+        clickElements(elements.getAdminButton());
+        clickElements(elements.getAddButton());
+        clickElements(elements.getSaveButton());
+        Assert.assertTrue(isDisplayedElements(elements.getErrorForEmptyFields()));
+
+        String expectedColor = "rgba(235, 9, 16, 1)";
+        String actualColor = elements.getErrorForEmptyFields().getCssValue("color");
+        Assert.assertEquals(actualColor, expectedColor);
+
+
 
     }
+
 
     @Test
     void testCase04(){
@@ -100,5 +122,8 @@ public class Add_User_Functionality_Test_Cases extends UtilityClass {
     }
 
 
-
+    @Override
+    public void sendKeysElements(WebElement element, String msg) {
+        super.sendKeysElements(element, msg);
+    }
 }
