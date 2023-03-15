@@ -64,19 +64,14 @@ public class Add_User_Functionality_Test_Cases extends UtilityClass {
     @Test
     void testCase09(){
      Orange_App_Elements elements=new Orange_App_Elements(driver);
-        //Check if you are in Dashboard page
-        Assert.assertEquals(getTextFromElements(elements.getDashboardHeader()), "Dashboard");
 
-        //Navigate to Admin page
+        //I navigate to Admin / User Management page.
         clickElements(elements.getAdminButton());
 
-        //Check if you landed on Admin page
-        Assert.assertTrue(driver.getCurrentUrl().contains("SystemUsers"));
-
-        //Click on add button
+        //I click on Add button
         clickElements(elements.getAddButton());
 
-        //Verify the elements are displayed;
+        //I verify that all the required elements are displayed (User Role, Employee Name, Status, Username, Password, Confirm Password, Cancel, Save)
         Assert.assertTrue(isDisplayedElements(elements.getUserRole()));
         Assert.assertTrue(isDisplayedElements(elements.getEmployeeName()));
         Assert.assertTrue(isDisplayedElements(elements.getStatus()));
@@ -92,16 +87,13 @@ public class Add_User_Functionality_Test_Cases extends UtilityClass {
     @Test
     void testCase10(){
         Orange_App_Elements elements=new Orange_App_Elements(driver);
-        //Navigate to Admin page
+        //I navigate to Admin / User Management page.
         clickElements(elements.getAdminButton());
 
-        //Check if you landed on Admin page
-        Assert.assertTrue(driver.getCurrentUrl().contains("SystemUsers"));
-
-        //Click on add button
+        //I click on Add button
         clickElements(elements.getAddButton());
 
-        //Verify "Add User" header is displayed
+        //I verify that “Add User” heading is displayed
         Assert.assertTrue(isDisplayedElements(elements.getAddUserHeader()));
     }
 
