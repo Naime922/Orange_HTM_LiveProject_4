@@ -49,7 +49,29 @@ public class Add_User_Functionality_Test_Cases extends UtilityClass {
 
     @Test
     void testCase06(){
+        Orange_App_Elements elements=new Orange_App_Elements(driver);
+        //Check if you are in Dashboard page
+        Assert.assertEquals(getTextFromElements(elements.getDashboardHeader()), "Dashboard");
 
+        //Navigate to Admin page
+        clickElements(elements.getAdminButton());
+
+        //Check if you landed on Admin page
+        Assert.assertTrue(driver.getCurrentUrl().contains("SystemUsers"));
+
+        //Click on add button
+        clickElements(elements.getAddButton());
+
+        //Enter a value in to the username field which is less than 5 characters
+        sendKeysElements(elements.getUsernameInputBox(), "utku");
+
+        //Verify that notification messages “Should be at least 5 characters” in red color displayed.
+        String actual = elements.getUsernameErrorMessage().getText();
+
+        System.out.println(actual);
+
+        String expected = "Should be at least 5 characters";
+        Assert.assertEquals(actual, expected);
     }
 
     @Test
