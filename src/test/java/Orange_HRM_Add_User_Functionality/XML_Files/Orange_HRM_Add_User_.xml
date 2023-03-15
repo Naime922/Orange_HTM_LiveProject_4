@@ -3,7 +3,8 @@
 <suite name="All Test Suite">
     <test name="Add_User_Functionality_Test">
         <parameter name="browser" value="chrome"></parameter>
-        <classes>
+        <parameter name="msg" value="Abc123!"></parameter>
+                <classes>
             <class name="Orange_HRM_Add_User_Functionality.Add_User_Functionality_Test_Cases">
                 <methods>
                     <include name="testCase01"/>
