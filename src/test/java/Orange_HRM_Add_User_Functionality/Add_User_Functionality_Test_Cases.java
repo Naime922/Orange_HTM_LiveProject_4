@@ -53,6 +53,20 @@ public class Add_User_Functionality_Test_Cases extends UtilityClass {
 
     @Test
     void testCase07(){
+        Orange_App_Elements elements = new Orange_App_Elements(driver);
+
+        clickElements(elements.getAdminButton());
+        clickElements(elements.getAddButton());
+
+        sendKeysElements(elements.getUsernameSearchButton(), "Jadine.Jackie");
+        Assert.assertTrue(isDisplayedElements(elements.getAlreadyExistsMessage()));
+
+        Assert.assertEquals(elements.getAlreadyExistsMessage().getCssValue("color"), "rgba(235, 9, 16, 1)");
+
+
+
+
+
 
     }
 
