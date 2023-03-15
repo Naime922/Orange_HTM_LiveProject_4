@@ -40,8 +40,6 @@ public class Add_User_Functionality_Test_Cases extends UtilityClass {
         String actualColor = elements.getErrorForEmptyFields().getCssValue("color");
         Assert.assertEquals(actualColor, expectedColor);
 
-
-
     }
 
 
@@ -59,9 +57,6 @@ public class Add_User_Functionality_Test_Cases extends UtilityClass {
         String ActualColor = elements.getPasswordErrorMessage().getCssValue("color");
         String ExpectedColor ="rgba(235, 9, 16, 1)";
         Assert.assertEquals(ActualColor,ExpectedColor);
-
-
-
 
 
     }
@@ -109,10 +104,6 @@ public class Add_User_Functionality_Test_Cases extends UtilityClass {
         Assert.assertTrue(isDisplayedElements(elements.getAlreadyExistsMessage()));
 
         Assert.assertEquals(elements.getAlreadyExistsMessage().getCssValue("color"), "rgba(235, 9, 16, 1)");
-
-
-
-
 
 
     }
