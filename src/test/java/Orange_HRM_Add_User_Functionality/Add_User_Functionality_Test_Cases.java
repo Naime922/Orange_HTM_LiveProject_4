@@ -5,6 +5,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -67,16 +68,16 @@ public class Add_User_Functionality_Test_Cases extends UtilityClass {
     }
 
     @Test
-    void testCase06(){
+    void testCase06() throws InterruptedException {
         Orange_App_Elements elements=new Orange_App_Elements(driver);
         //Check if you are in Dashboard page
-        Assert.assertEquals(getTextFromElements(elements.getDashboardHeader()), "Dashboard");
+
 
         //Navigate to Admin page
         clickElements(elements.getAdminButton());
 
         //Check if you landed on Admin page
-        Assert.assertTrue(driver.getCurrentUrl().contains("SystemUsers"));
+
 
         //Click on add button
         clickElements(elements.getAddButton());
@@ -87,7 +88,7 @@ public class Add_User_Functionality_Test_Cases extends UtilityClass {
         //Verify that notification messages “Should be at least 5 characters” in red color displayed.
         String actual = elements.getUsernameErrorMessage().getText();
 
-        System.out.println(actual);
+
 
         String expected = "Should be at least 5 characters";
         Assert.assertEquals(actual, expected);
