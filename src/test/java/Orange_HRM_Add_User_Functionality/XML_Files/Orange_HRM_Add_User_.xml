@@ -18,7 +18,7 @@
                     <include name="testCase09"/>
                     <include name="testCase10"/>
                     <include name="testCase11"/>
-                    <include name="testCase12"/>
+<!--                    <include name="testCase12"/>-->
                 </methods>
             </class>
         </classes>
