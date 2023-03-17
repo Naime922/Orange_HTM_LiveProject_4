@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class Orange_App_Elements {
 
     public Orange_App_Elements(WebDriver driver) {
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(css = "input[name='username']")
@@ -56,7 +56,7 @@ public class Orange_App_Elements {
     @FindBy(xpath = "(//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow'])[2]")
     private WebElement statusDropdownMenuArrow;
 
-    @FindBy( xpath = "//div//span[text()='Enabled']")
+    @FindBy(xpath = "//div//span[text()='Enabled']")
     private WebElement enabledFromStatus;
 
     @FindBy(xpath = "//div//span[text()='Disabled']")
@@ -98,6 +98,7 @@ public class Orange_App_Elements {
     @FindBy(css = "span.oxd-text.oxd-text--span.oxd-input-field-error-message.oxd-input-group__message")
     private WebElement passwordErrorMessage;
 
+
     @FindBy(xpath ="(//div[@role='option']//span)[1]")
     private WebElement employeeNameTest1;
 
@@ -126,6 +127,37 @@ public class Orange_App_Elements {
     public WebElement getEmployeeNameTest1() {
         return employeeNameTest1;
     }
+ 
+    @FindBy(xpath = "(//span[text()='Required'])[1]")
+    private WebElement errorForEmptyFields;
+
+    @FindBy(xpath = "//div[text()='No Records Found']")
+    private WebElement noRecordFoundErrorMessageForEmployeeName;
+
+    @FindBy(xpath = "//span[text()='Invalid']")
+    private WebElement invalidMessageForEmployeeName;
+
+    public WebElement getNoRecordFoundErrorMessageForEmployeeName() {
+        return noRecordFoundErrorMessageForEmployeeName;
+    }
+
+    public WebElement getInvalidMessageForEmployeeName() {
+        return invalidMessageForEmployeeName;
+    }
+
+    @FindBy(xpath = "(//div[@class='oxd-table-cell oxd-padding-cell'])[2]")
+    private WebElement findRecord;
+
+    public WebElement getErrorForEmptyFields() {
+        return errorForEmptyFields;
+    }
+
+
+    @FindBy(css = "span.oxd-text.oxd-text--span.oxd-input-field-error-message.oxd-input-group__message")
+    private WebElement usernameErrorMessage;
+
+    @FindBy(xpath = "//div//span[text()='Already exists']")
+    private WebElement alreadyExistsMessage;
 
     public WebElement getUserName() {
         return userName;
@@ -243,5 +275,18 @@ public class Orange_App_Elements {
         return passwordErrorMessage;
     }
 
+    public WebElement getFindRecord() {
+        return findRecord;
+    }
+
+    public WebElement getUsernameErrorMessage() {
+        return usernameErrorMessage;
+    }
+
+
+    public WebElement getAlreadyExistsMessage() {
+        return alreadyExistsMessage;
+    }
 
 }
+
