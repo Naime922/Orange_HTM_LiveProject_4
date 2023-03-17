@@ -1,7 +1,9 @@
 package Orange_HRM_Add_User_Functionality;
 
 import Utilities.UtilityClass;
+import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
@@ -129,7 +131,31 @@ public class Add_User_Functionality_Test_Cases extends UtilityClass {
     }
 
     @Test
-    void testCase12(){
+    void testCase12() throws InterruptedException {
+        String name="Admin256";
+
+        Orange_App_Elements elements=new Orange_App_Elements(driver);
+        wait.until(ExpectedConditions.visibilityOf(elements.getAdminButton()));
+        elements.getAdminButton().click();
+        wait.until(ExpectedConditions.visibilityOf(elements.getUsernameInputBox()));
+        elements.getAddButton().click();
+        clickElements(elements.getUserRoleDropdownArrow());
+        clickElements(elements.getESSFromUserRole());
+        clickElements(elements.getStatusDropdownMenuArrow());
+        clickElements(elements.getEnabledFromStatus());
+        sendKeysElements(elements.getEmployeeNameInputBox(),"b");
+        clickElements(elements.getEmployeeNameFromDropdownMenu());
+        sendKeysElements(elements.getUsernameInputBox(),name);
+        sendKeysElements(elements.getPasswordInputBox(),"ADDMIN.123");
+
+        Assert.assertTrue(isDisplayedElements(elements.getErrorTextMessage()));
+        Assert.assertEquals(elements.getErrorTextMessage().getCssValue("color"),"rgba(235, 9, 16, 1)");
+        System.out.println(elements.getErrorTextMessage().getText());
+        System.out.println(elements.getErrorTextMessage().getCssValue("color"));
+
+
+
+
 
     }
 

@@ -108,6 +108,13 @@ public class Orange_App_Elements {
     @FindBy(xpath = "(//div[@class='oxd-table-cell oxd-padding-cell'])[2]")
     private WebElement recordSearch;
 
+    @FindBy(xpath = "(//span[@class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message'])[2]")
+    private WebElement errorTextMessage;
+
+    public WebElement getErrorTextMessage() {
+        return errorTextMessage;
+    }
+
     public WebElement getUserNameSearch() {
         return userNameSearch;
     }
