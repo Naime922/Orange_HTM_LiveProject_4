@@ -1,13 +1,47 @@
 package Orange_HRM_Add_User_Functionality;
 
 import Utilities.UtilityClass;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class Add_User_Functionality_Test_Cases extends UtilityClass {
 
     @Test
-    void testCase01(){
+    void testCase01() throws InterruptedException {
+
+     String name="Admin255";
+
+     Orange_App_Elements elements=new Orange_App_Elements(driver);
+     wait.until(ExpectedConditions.visibilityOf(elements.getAdminButton()));
+     elements.getAdminButton().click();
+     wait.until(ExpectedConditions.visibilityOf(elements.getUsernameInputBox()));
+     elements.getAddButton().click();
+     clickElements(elements.getUserRoleDropdownArrow());
+     clickElements(elements.getESSFromUserRole());
+     clickElements(elements.getStatusDropdownMenuArrow());
+     clickElements(elements.getEnabledFromStatus());
+     sendKeysElements(elements.getEmployeeNameInputBox(),"p");
+     clickElements(elements.getEmployeeNameFromDropdownMenu());
+     sendKeysElements(elements.getUsernameInputBox(),name);
+     sendKeysElements(elements.getPasswordInputBox(),"Addmin.123");
+     sendKeysElements(elements.getConfirmPasswordInputBox(),"Addmin.123");
+     clickElements(elements.getSaveButton());
+
+     Thread.sleep(3000);
+
+     clickElements(elements.getAdminButton());
+     sendKeysElements(elements.getUserNameSearch(),name);
+     clickElements(elements.getSubmitButtonForSearch());
+     Assert.assertTrue(getTextFromElements(elements.getRecordSearch()).contains(name));
+
+
+
+
 
     }
 

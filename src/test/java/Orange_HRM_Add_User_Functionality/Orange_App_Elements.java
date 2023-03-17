@@ -98,6 +98,28 @@ public class Orange_App_Elements {
     @FindBy(css = "span.oxd-text.oxd-text--span.oxd-input-field-error-message.oxd-input-group__message")
     private WebElement passwordErrorMessage;
 
+    @FindBy(xpath ="(//div[@role='option']//span)[1]")
+    private WebElement employeeNameTest1;
+
+
+    @FindBy(xpath = "(//input[@class='oxd-input oxd-input--active'])[2]")
+    private WebElement userNameSearch;
+
+    @FindBy(xpath = "(//div[@class='oxd-table-cell oxd-padding-cell'])[2]")
+    private WebElement recordSearch;
+
+    public WebElement getUserNameSearch() {
+        return userNameSearch;
+    }
+
+    public WebElement getRecordSearch() {
+        return recordSearch;
+    }
+
+    public WebElement getEmployeeNameTest1() {
+        return employeeNameTest1;
+    }
+
     public WebElement getUserName() {
         return userName;
     }
