@@ -1,9 +1,12 @@
 package Orange_HRM_Add_User_Functionality;
 
 import Utilities.UtilityClass;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
@@ -63,36 +66,58 @@ public class Add_User_Functionality_Test_Cases extends UtilityClass {
     }
 
     @Test
-    void testCase05(){
+    void testCase05() {
 
-    }
-
-    @Test
-    void testCase06() throws InterruptedException {
-        Orange_App_Elements elements=new Orange_App_Elements(driver);
-        //Check if you are in Dashboard page
-
-
-        //Navigate to Admin page
+        // String EmployeeName = "Taeyang";
+        Orange_App_Elements elements = new Orange_App_Elements(driver);
         clickElements(elements.getAdminButton());
-
-        //Check if you landed on Admin page
-
-
-        //Click on add button
         clickElements(elements.getAddButton());
+        //  clickElements(elements.getEmployeeNameInputBox());
 
-        //Enter a value in to the username field which is less than 5 characters
-        sendKeysElements(elements.getUsernameInputBox(), "utku");
+        sendKeysElements(elements.getEmployeeNameInputBox(), "Taeyang");
 
-        //Verify that notification messages “Should be at least 5 characters” in red color displayed.
-        String actual = elements.getUsernameErrorMessage().getText();
+        String actualNoRecordFoundErrorMessageForEmployeeName = getTextFromElements(elements.getNoRecordFoundErrorMessageForEmployeeName());
+        String expectedNoRecordFoundErrorMessageForEmployeeName = "No Records Found";
 
+        Assert.assertEquals(actualNoRecordFoundErrorMessageForEmployeeName, expectedNoRecordFoundErrorMessageForEmployeeName);
+        Assert.assertTrue(isDisplayedElements(elements.getNoRecordFoundErrorMessageForEmployeeName()));
 
+        Actions actions = new Actions(driver);
+        Action action = actions.sendKeys(Keys.TAB).build();
+        action.perform();
 
-        String expected = "Should be at least 5 characters";
-        Assert.assertEquals(actual, expected);
+        String actualInvalidMessageForEmployeeName = getTextFromElements(elements.getInvalidMessageForEmployeeName());
+        String expectedInvalidMessageForEmployeeName = "Invalid";
+
+        Assert.assertEquals(actualInvalidMessageForEmployeeName, expectedInvalidMessageForEmployeeName);
+        Assert.assertTrue(isDisplayedElements(elements.getInvalidMessageForEmployeeName()));
     }
+
+        @Test
+        void testCase06 () throws InterruptedException {
+            Orange_App_Elements elements = new Orange_App_Elements(driver);
+            //Check if you are in Dashboard page
+
+
+            //Navigate to Admin page
+            clickElements(elements.getAdminButton());
+
+            //Check if you landed on Admin page
+
+
+            //Click on add button
+            clickElements(elements.getAddButton());
+
+            //Enter a value in to the username field which is less than 5 characters
+            sendKeysElements(elements.getUsernameInputBox(), "utku");
+
+            //Verify that notification messages “Should be at least 5 characters” in red color displayed.
+            String actual = elements.getUsernameErrorMessage().getText();
+
+
+            String expected = "Should be at least 5 characters";
+            Assert.assertEquals(actual, expected);
+        }
 
     @Test
     void testCase07(){

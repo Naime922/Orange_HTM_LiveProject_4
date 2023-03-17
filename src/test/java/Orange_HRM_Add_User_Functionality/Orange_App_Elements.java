@@ -102,6 +102,20 @@ public class Orange_App_Elements {
     @FindBy(xpath = "(//span[text()='Required'])[1]")
     private WebElement errorForEmptyFields;
 
+    @FindBy(xpath = "//div[text()='No Records Found']")
+    private WebElement noRecordFoundErrorMessageForEmployeeName;
+
+    @FindBy(xpath = "//span[text()='Invalid']")
+    private WebElement invalidMessageForEmployeeName;
+
+    public WebElement getNoRecordFoundErrorMessageForEmployeeName() {
+        return noRecordFoundErrorMessageForEmployeeName;
+    }
+
+    public WebElement getInvalidMessageForEmployeeName() {
+        return invalidMessageForEmployeeName;
+    }
+
     public WebElement getErrorForEmptyFields() {
         return errorForEmptyFields;
     }
