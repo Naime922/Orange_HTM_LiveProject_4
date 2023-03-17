@@ -98,7 +98,36 @@ public class Orange_App_Elements {
     @FindBy(css = "span.oxd-text.oxd-text--span.oxd-input-field-error-message.oxd-input-group__message")
     private WebElement passwordErrorMessage;
 
-    //@FindBy(css = "//span[text()='Required']")
+
+    @FindBy(xpath ="(//div[@role='option']//span)[1]")
+    private WebElement employeeNameTest1;
+
+
+    @FindBy(xpath = "(//input[@class='oxd-input oxd-input--active'])[2]")
+    private WebElement userNameSearch;
+
+    @FindBy(xpath = "(//div[@class='oxd-table-cell oxd-padding-cell'])[2]")
+    private WebElement recordSearch;
+
+    @FindBy(xpath = "(//span[@class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message'])[2]")
+    private WebElement errorTextMessage;
+
+    public WebElement getErrorTextMessage() {
+        return errorTextMessage;
+    }
+
+    public WebElement getUserNameSearch() {
+        return userNameSearch;
+    }
+
+    public WebElement getRecordSearch() {
+        return recordSearch;
+    }
+
+    public WebElement getEmployeeNameTest1() {
+        return employeeNameTest1;
+    }
+ 
     @FindBy(xpath = "(//span[text()='Required'])[1]")
     private WebElement errorForEmptyFields;
 
@@ -129,8 +158,6 @@ public class Orange_App_Elements {
 
     @FindBy(xpath = "//div//span[text()='Already exists']")
     private WebElement alreadyExistsMessage;
-
-
 
     public WebElement getUserName() {
         return userName;

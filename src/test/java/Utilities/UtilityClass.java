@@ -74,7 +74,7 @@ public class UtilityClass {
 
     }
 
-    @AfterClass(alwaysRun = true)
+//    @AfterClass(alwaysRun = false)
     public void finishSettings() {
         try {
             Thread.sleep(3000);
