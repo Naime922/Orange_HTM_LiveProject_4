@@ -116,6 +116,9 @@ public class Orange_App_Elements {
         return invalidMessageForEmployeeName;
     }
 
+    @FindBy(xpath = "(//div[@class='oxd-table-cell oxd-padding-cell'])[2]")
+    private WebElement findRecord;
+
     public WebElement getErrorForEmptyFields() {
         return errorForEmptyFields;
     }
@@ -245,9 +248,9 @@ public class Orange_App_Elements {
         return passwordErrorMessage;
     }
 
-
-
-
+    public WebElement getFindRecord() {
+        return findRecord;
+    }
 
     public WebElement getUsernameErrorMessage() {
         return usernameErrorMessage;

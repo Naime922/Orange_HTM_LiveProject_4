@@ -27,6 +27,21 @@ public class Add_User_Functionality_Test_Cases extends UtilityClass {
 
     @Test
     void testCase02() {
+       Orange_App_Elements elements = new Orange_App_Elements(driver);
+       clickElements(elements.getAdminButton());
+       clickElements(elements.getAddButton());
+        clickElements(elements.getUserRoleDropdownArrow());
+        clickElements(elements.getESSFromUserRole());
+        clickElements(elements.getStatusDropdownMenuArrow());
+        clickElements(elements.getEnabledFromStatus());
+        sendKeysElements(elements.getEmployeeNameInputBox(), "L");
+        clickElements(elements.getEmployeeNameFromDropdownMenu());
+        sendKeysElements(elements.getPasswordInputBox(), "Naime123.");
+        sendKeysElements(elements.getConfirmPasswordInputBox(), "Naime123.");
+        clickElements(elements.getSaveButton());
+        clickElements(elements.getSubmitButtonForSearch());
+        Assert.assertTrue(getTextFromElements(elements.getFindRecord()).contains("Lisa Andrews"));
+
 
     }
 
