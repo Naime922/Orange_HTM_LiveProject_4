@@ -2,30 +2,16 @@ package Orange_HRM_Add_User_Functionality;
 
 import Utilities.UtilityClass;
 
-import org.checkerframework.checker.units.qual.A;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.Color;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
 
+
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
-import java.io.File;
-import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class Add_User_Functionality_Test_Cases extends UtilityClass {
 
@@ -61,7 +47,9 @@ public class Add_User_Functionality_Test_Cases extends UtilityClass {
     }
 
     @Test
-    void testCase02() {
+    void testCase02() throws InterruptedException {
+        String username="username2525";
+
        Orange_App_Elements elements = new Orange_App_Elements(driver);
        clickElements(elements.getAdminButton());
        clickElements(elements.getAddButton());
@@ -71,11 +59,15 @@ public class Add_User_Functionality_Test_Cases extends UtilityClass {
         clickElements(elements.getEnabledFromStatus());
         sendKeysElements(elements.getEmployeeNameInputBox(), "L");
         clickElements(elements.getEmployeeNameFromDropdownMenu());
+        sendKeysElements(elements.getUsernameInputBox(),username);
         sendKeysElements(elements.getPasswordInputBox(), "Naime123.");
         sendKeysElements(elements.getConfirmPasswordInputBox(), "Naime123.");
         clickElements(elements.getSaveButton());
+        Thread.sleep(3000);
+        clickElements(elements.getAdminButton());
+        sendKeysElements(elements.getUsernameInputBox(), username);
         clickElements(elements.getSubmitButtonForSearch());
-        Assert.assertTrue(getTextFromElements(elements.getFindRecord()).contains("Lisa Andrews"));
+        Assert.assertTrue(getTextFromElements(elements.getFindRecord()).contains(username));
 
 
     }
@@ -280,9 +272,9 @@ public class Add_User_Functionality_Test_Cases extends UtilityClass {
 
     }
 
-
-    @Override
-    public void sendKeysElements(WebElement element, String msg) {
-        super.sendKeysElements(element, msg);
-    }
+//
+//    @Override
+//    public void sendKeysElements(WebElement element, String msg) {
+//        super.sendKeysElements(element, msg);
+//    }
 }
